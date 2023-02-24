@@ -36,10 +36,10 @@ const Navbar = () => {
                             <nav aria-label="Site Nav">
                                 <ul className="flex items-center gap-6 text-sm">
 
-                                    <li><Link to='/' className="text-white font-semibold font-3xl transition hover:te-500/75" >Home</Link></li>
-                                    <li><Link to='/myreview' className="text-white font-semibold font-3xl transition hover:te-500/75" >My Review</Link></li>
-                                    <li><Link to='/about' className="text-white font-semibold font-3xl transition hover:text-gray-500/75" >Add Service</Link></li>
-                                    <li><Link to='/about' className="text-white font-semibold font-3xl transition hover:text-gray-500/75" >Dashboard</Link></li>
+                                    <li><Link to='/' className="text-base-300 font-semibold font-3xl transition hover:text-500/75" >Home</Link></li>
+                                    <li><Link to='/myreview' className="text-base-300 font-semibold font-3xl transition hover:text-500/75" >My Review</Link></li>
+                                    <li><Link to='/about' className="text-base-300 font-semibold font-3xl transition hover:text-gray-500/75" >Add Service</Link></li>
+                                    <li><Link to='/about' className="text-base-300 font-semibold font-3xl transition hover:text-gray-500/75" >Dashboard</Link></li>
 
                                 </ul>
                             </nav>
@@ -67,7 +67,7 @@ const Navbar = () => {
 
                             <div className="dropdown">
                                 <label tabIndex={0} className="btn btn-ghost md:hidden">
-                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                                 </label>
 
                                 <div tabIndex={0} className="menu menu-compact dropdown-content  p-2   absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none "   >
@@ -76,6 +76,7 @@ const Navbar = () => {
                                         <Link to='/' className="text-gray-700 block px-4 py-2 text-sm" >Home</Link>
                                         <Link to='/myreview' className="text-gray-700 block px-4 py-2 text-sm" >My Review</Link>
                                         <Link to='/addservice' className="text-gray-700 block px-4 py-2 text-sm" >Add Service</Link>
+                                        <Link to='/dashboard' className="text-gray-700 block px-4 py-2 text-sm" >Dashboard</Link>
 
                                     </div>
 

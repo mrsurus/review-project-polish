@@ -1,15 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Components/Context/AuthProvider';
 import ServiceCard from './ServiceCard';
 
 const Services = () => {
-    const [services, setServices] = useState([])
-
-    useEffect(()=> {
-        fetch('Services.json')
-        .then(res => res.json())
-        .then(data => setServices(data))
-
-    }, [])
+ const {services} = useContext(AuthContext)
 
 
     return (
@@ -24,7 +19,7 @@ const Services = () => {
             }
             </div>
             <div className='text-center'>
-                <button className='btn btn-primary hover:bg-lime-500'>See All Services</button>
+                <Link to='/allservice'><button className='btn btn-primary'>See All Services</button></Link>
             </div>
         </div>
     );

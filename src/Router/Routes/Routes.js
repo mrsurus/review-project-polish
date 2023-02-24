@@ -1,3 +1,5 @@
+import Allservice from "../../Pages/Components/Allservices/Allservice";
+import FoodDetails from "../../Pages/Components/FoodDetails/FoodDetails";
 import Login from "../../Pages/Login/Login";
 import Signup from "../../Pages/Signup/Signup";
 
@@ -21,6 +23,14 @@ const router = createBrowserRouter([
             {
                 path:'/signup',
                 element: <Signup></Signup>
+            },
+            {
+                path:'/fooddetails',
+                element: <FoodDetails></FoodDetails>
+            },
+            {
+                path:'/allservice',
+                element: <Allservice></Allservice>
             }
         ]
     }

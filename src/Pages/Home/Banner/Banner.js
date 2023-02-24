@@ -13,7 +13,7 @@ const Banner = () => {
                         </div>
                         <div className="card flex-shrink-0 w-full shadow-2xl ">
                             <div className='card-body '>
-                                <img className=' h-[400px] rounded-lg' src="https://images.pexels.com/photos/699953/pexels-photo-699953.jpeg?auto=compress&cs=tinysrgb&w=600" alt="" />
+                                <img className=' rounded-lg' src="https://images.pexels.com/photos/1059905/pexels-photo-1059905.jpeg?auto=compress&cs=tinysrgb&w=600" alt="" />
                             </div>
                         </div>
                     </div>
