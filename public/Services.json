@@ -1,0 +1,45 @@
+[
+    {
+        "name":"Fish Fry",
+        "price": 20,
+        "details": "Fish Fry is a delicious food that I can't get enough of is sushi. The combination of fresh fish and seaweed creates a perfect blend of flavors and textures that leave my taste buds tingling with delight. Whether it's a classic roll or a specialty creation, sushi always satisfies my cravings",
+        "img": "https://images.pexels.com/photos/262978/pexels-photo-262978.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "rating": "4.5"
+    },
+    {
+        "name":"Chicken Burger",
+        "price": 15,
+        "details": "One of the most delicious foods in the world is Burger. With its crispy crust, tangy tomato sauce, and melting cheese, it's hard to resist a slice. Topped with a variety of meats, vegetables, and herbs, pizza is a versatile dish that can be enjoyed in many different ways.",
+        "img": "https://images.pexels.com/photos/2983101/pexels-photo-2983101.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "rating": "4.3"
+    },
+    {
+        "name":"Mutton Posto",
+        "price": 40,
+        "details": "Mutton Posto is  delicious food that I can't get enough of is sushi. The combination of fresh mutton and seaweed creates a perfect blend of flavors and textures that leave my taste buds tingling with delight. Whether it's a classic roll or a specialty creation, sushi always satisfies my cravings.",
+        "img": "https://images.pexels.com/photos/2313686/pexels-photo-2313686.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "rating": "4.5"
+    },
+    {
+        "name":"Chicken Tanduri",
+        "price": 25,
+        "details": "The succulent chicken tandoori is an iconic dish that has been enjoyed by foodies worldwide for centuries. The tender chicken is marinated in a blend of aromatic spices and yoghurt, then cooked to perfection in a traditional clay oven.",
+        "img": "https://images.pexels.com/photos/2673353/pexels-photo-2673353.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "rating": "4.0"
+    },
+    {
+        "name":"Chow-Mein",
+        "price": 10,
+        "details": " Chow-Mein dish is a perfect combination of stir-fried noodles, meat, vegetables, and delicious sauces. The aroma of the freshly cooked noodles and the rich flavors of the vegetables and meat will tantalize your taste buds. Whether you like it spicy or mild, this dish is sure to leave you satisfied and craving for more.",
+        "img": "https://images.pexels.com/photos/64208/pexels-photo-64208.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "rating": "4.3"
+    },
+    {
+        "name":"Coral Fish",
+        "price": 30,
+        "details": "Coral fish is a delicacy that is a must-try for seafood lovers. With its tender and succulent flesh, this fish is known for its unique flavor and taste. Its delicate texture and mild taste make it an excellent choice for grilling, baking, or frying.",
+        "img": "https://images.pexels.com/photos/1247677/pexels-photo-1247677.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "rating": "4.5"
+    }
+    
+]
