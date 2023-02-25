@@ -1,17 +1,34 @@
 import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
+import { setAuthToken } from '../Components/Api/Auth';
 import { AuthContext } from '../Components/Context/AuthProvider';
 
 const Signup = () => {
     const { register, handleSubmit, formState: { errors } } = useForm()
-    const { createUser, googleLogin } = useContext(AuthContext)
+    const { createUser, googleLogin, updateNamePhoto } = useContext(AuthContext)
+    const location = useLocation()
+    const navigate = useNavigate()
+    const from = location.state?.from?.pathname || '/'
 
     const handleSignup = data => {
         console.log(data.email, data.password);
         createUser(data.email, data.password)
             .then(res => {
-                console.log(res.user);
+                const user = res.user
+                setAuthToken(user)
+                updateNamePhoto(data.name, data.photo)
+                .then(res => console.log('display updated'))
+                .then(err => console.log(err))
+                navigate(from, {replace: true})
+                
+                Swal.fire(
+                    'Good job!',
+                    'Log in Successfull!',
+                    'success'
+                )
+
             })
             .catch(err => console.log(err))
     }
@@ -20,6 +37,7 @@ const Signup = () => {
         googleLogin()
         .then(res => {
             console.log(res.user);
+            navigate(from, {replace: true})
         })
         .catch(err => console.log(err))
     }
@@ -36,21 +54,28 @@ const Signup = () => {
                                 <label className="label">
                                     <span className="text-white">Name</span>
                                 </label>
-                                <input {...register('name')} type="text" name='name' placeholder="Your Name" className="input input-bordered" />
+                                <input {...register('name', {required:'name is required'})} type="text" name='name' placeholder="Your Name" className="input input-bordered" />
+                            </div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="text-white">Photo URL</span>
+                                </label>
+                                <input {...register('photo', {required:'name is required'})} type="text" name='photo' placeholder="Photo URLs" className="input input-bordered" />
                             </div>
 
                             <div className="form-control">
                                 <label className="label">
                                     <span className="text-white">Email</span>
                                 </label>
-                                <input {...register('email')} type="text" name='email' placeholder="email" className="input input-bordered" required />
+                                <input {...register('email', {required:true})} type="text" name='email' placeholder="email" className="input input-bordered"  />
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="text-white">Password</span>
                                 </label>
-                                <input {...register('password')} type="password" placeholder="password" className="input input-bordered" />
+                                <input {...register('password', {required: true, minLength:{value: 6, message: 'Password must be at lest 6 charectar'}})} type="password" placeholder="password" className="input input-bordered" />
                             </div>
+                            <p className='text-red-500'>{errors.password?.message}</p>
                             <div className="form-control mt-6">
                                 <input className='btn bg-lime-500 ' type="submit" value="Sign Up" />
                             </div>

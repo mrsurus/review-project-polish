@@ -1,7 +1,12 @@
+import AddSevice from "../../Pages/Components/AddService/AddSevice";
 import Allservice from "../../Pages/Components/Allservices/Allservice";
+import Blog from "../../Pages/Components/Blog/Blog";
 import FoodDetails from "../../Pages/Components/FoodDetails/FoodDetails";
+import Myreview from "../../Pages/Components/MyReview/Myreview";
+import UpdateReview from "../../Pages/Components/UpdateReview/UpdateReview";
 import Login from "../../Pages/Login/Login";
 import Signup from "../../Pages/Signup/Signup";
+import PrivateRoute from "./PrivateRoute";
 
 const { createBrowserRouter } = require("react-router-dom");
 const { default: Main } = require("../../Layout/Main");
@@ -23,14 +28,32 @@ const router = createBrowserRouter([
             {
                 path:'/signup',
                 element: <Signup></Signup>
-            },
-            {
-                path:'/fooddetails',
-                element: <FoodDetails></FoodDetails>
-            },
+            },       
             {
                 path:'/allservice',
                 element: <Allservice></Allservice>
+            },
+            {
+                path: '/update/:id',
+                element: <UpdateReview></UpdateReview>,
+                loader: ({params})=> fetch(`http://localhost:5000/reviews/${params.id}`)
+            },
+            {
+                path:'/fooddetails/:id',
+                element: <FoodDetails></FoodDetails>,
+                loader: ({params}) => fetch(`http://localhost:5000/services/${params.id}`)
+            },
+            {
+                path:'/myreview',
+                element: <PrivateRoute><Myreview></Myreview></PrivateRoute>
+            },
+            {
+                path:'/addservice',
+                element: <PrivateRoute><AddSevice></AddSevice></PrivateRoute>
+            },
+            {
+                path: 'blog',
+                element: <Blog></Blog>
             }
         ]
     }

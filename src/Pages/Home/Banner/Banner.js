@@ -4,7 +4,7 @@ const Banner = () => {
     return (
         <div>
             <section className="bg-gray-900 text-white">
-                <div className="hero min-h-screen ">
+                <div className="hero py-16 ">
                     <div className="hero-content grid grid-cols-1 md:grid-cols-2">
                         <div className="text-center lg:text-left ">
                             <h1 className="text-5xl font-bold text-lime-500">Green Food</h1>
@@ -13,7 +13,7 @@ const Banner = () => {
                         </div>
                         <div className="card flex-shrink-0 w-full shadow-2xl ">
                             <div className='card-body '>
-                                <img className=' rounded-lg' src="https://images.pexels.com/photos/1059905/pexels-photo-1059905.jpeg?auto=compress&cs=tinysrgb&w=600" alt="" />
+                                <img className=' rounded-lg' src='https://images.pexels.com/photos/61180/pexels-photo-61180.jpeg?auto=compress&cs=tinysrgb&w=600' alt="" />
                             </div>
                         </div>
                     </div>

@@ -1,18 +1,31 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
+import { setAuthToken } from '../Components/Api/Auth';
 import { AuthContext } from '../Components/Context/AuthProvider';
 
 const Login = () => {
-    const {register,handleSubmit, formState:{errors} } = useForm()
-    const {logIn} = useContext(AuthContext)
+    const { register, handleSubmit, formState: { errors } } = useForm()
+    const [firebaseError, setFirebaseError] = useState(null)
+    const { logIn } = useContext(AuthContext)
+    const location = useLocation()
+    const navigate = useNavigate()
+    const from = location.state?.from?.pathname || '/'
 
     const handleLogIn = data => {
         logIn(data.email, data.password)
-        .then( res =>{
-            console.log(res.user);
-        })
-        .catch(err => console.log(err))
+            .then(res => {
+                const user = res.user
+                navigate(from, { replace: true })
+                setAuthToken(user)
+                Swal.fire(
+                    'Good job!',
+                    'Log in Successfull!',
+                    'success'
+                )
+            })
+            .catch(err => setFirebaseError(err))
     }
     return (
         <div className="hero min-h-full py-24 bg-lime-300">
@@ -28,25 +41,26 @@ const Login = () => {
                             <label className="label">
                                 <span className="text-white">Email</span>
                             </label>
-                            <input {...register('email')} type="text" placeholder="email" className="input input-bordered" />
+                            <input {...register('email', { required: true })} type="text" placeholder="email" className="input input-bordered" />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="text-white">Password</span>
                             </label>
-                            <input {...register('password')} type="password" placeholder="password" className="input input-bordered" />
+                            <input {...register('password', { required: true, minLength: { value: 6, message: 'Password must be at lest 6 charecter' }, })} type="password" placeholder="password" className="input input-bordered" />
                             <label className="label">
                                 <Link to='' href="#" className=" link  text-blue-500">Forgot password?</Link>
                             </label>
-                            <p className='text-red-500'>{errors?.errors}</p>
+                            {errors && <p className='text-red-500'>{errors.password?.message}</p>}
+                            {firebaseError && <p className='text-red-500'>Error: {firebaseError?.message.slice(22, 36)}</p>}
                         </div>
                         <div className="form-control mt-6">
                             <button className="btn bg-lime-500">Login</button>
                         </div>
                         <p className='text-white'>New to Green Food? <Link to='/signup' className='text-blue-400'>Sign Up</Link></p>
-                        
+
                     </div>
-                    
+
                 </form>
             </div>
         </div>

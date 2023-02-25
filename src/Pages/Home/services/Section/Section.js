@@ -1,4 +1,6 @@
 import React from 'react';
+import { AiFillCheckCircle, AiOutlineCheckCircle } from "react-icons/ai"
+import { BsFillCheckCircleFill } from "react-icons/bs"
 
 const Section = () => {
     return (
@@ -14,11 +16,12 @@ const Section = () => {
                 </div>
                 <div className='col my-8'>
                     <ul className='w-1/3 mx-auto'>
-                        <li className='my-3 text-lime-300'>Fresh</li>
-                        <li className='my-3 text-lime-300'>Fast Delevary</li>
-                        <li className='my-3 text-lime-300'>Tasty</li>
-                        <li className='my-3 text-lime-300'>Pesarvetive Free</li>
-                        <li className='my-3 text-lime-300'>Good looking</li>
+                       
+                        <li className='my-3 text-lime-300 flex items-center'><AiOutlineCheckCircle className='mr-5 text-2xl'></AiOutlineCheckCircle>Fresh</li>
+                        <li className='my-3 text-lime-300 flex items-center'><AiOutlineCheckCircle className='mr-5 text-2xl'></AiOutlineCheckCircle>  Fast Delevary</li>
+                        <li className='my-3 text-lime-300 flex items-center'><AiOutlineCheckCircle className='mr-5 text-2xl'></AiOutlineCheckCircle> Tasty</li>
+                        <li className='my-3 text-lime-300 flex items-center'><AiOutlineCheckCircle className='mr-5 text-2xl'></AiOutlineCheckCircle>Pesarvetive Free</li>
+                        <li className='my-3 text-lime-300 flex items-center'><AiOutlineCheckCircle className='mr-5 text-2xl'></AiOutlineCheckCircle>Good looking</li>
                     </ul>
                 </div>
                 
