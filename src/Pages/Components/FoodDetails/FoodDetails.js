@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
+import useTitle from '../../../Hooks/useTitle';
 import ReviewSection from '../ReviewSecton/ReviewSection';
 import ShowReviewCard from '../ReviewSecton/ShowReviewCard';
 import FoodDetailsCard from './FoodDetailsCard';
@@ -8,6 +9,7 @@ const FoodDetails = () => {
     const data = useLoaderData()
     const [reviewes, setReviewes] = useState([])
     const [refetch, setRefetch] = useState(true)
+    useTitle('Food Details')
 
     useEffect(()=>{
         fetch(`http://localhost:5000/review/${data._id}`)

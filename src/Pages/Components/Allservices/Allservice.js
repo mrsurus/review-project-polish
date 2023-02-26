@@ -1,9 +1,16 @@
 import React, { useContext } from 'react';
+import useTitle from '../../../Hooks/useTitle';
 import ServiceCard from '../../Home/services/ServiceCard';
 import { AuthContext } from '../Context/AuthProvider';
+import Spinner from '../Spinner/Spinner';
 
 const Allservice = () => {
-    const {services} = useContext(AuthContext)
+    const {services, loading} = useContext(AuthContext)
+    useTitle('All Service')
+
+    if(loading){
+        return <Spinner></Spinner>
+    }
 
     return (
         <div className='m-10 '>

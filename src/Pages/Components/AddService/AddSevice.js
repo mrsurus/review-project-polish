@@ -1,11 +1,13 @@
 import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import Swal from 'sweetalert2';
+import useTitle from '../../../Hooks/useTitle';
 import { AuthContext } from '../Context/AuthProvider';
 
 const AddSevice = () => {
     const { register, handleSubmit, reset } = useForm()
     const {setRefetch,refetch} = useContext(AuthContext)
+    useTitle('Add Service')
 
     const handleAddService = (data) => {
 

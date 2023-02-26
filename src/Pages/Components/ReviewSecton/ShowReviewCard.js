@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React  from 'react';
 import CardofReview from './CardofReview';
 
-const ShowReviewCard = ({reviewes,}) => {
+const ShowReviewCard = ({reviewes}) => {
 
     if(reviewes.length === 0){
         return <div className='text-center mt-16'> No review were added for this Item.</div>

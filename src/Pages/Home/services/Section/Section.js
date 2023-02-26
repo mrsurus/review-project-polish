@@ -1,10 +1,9 @@
 import React from 'react';
-import { AiFillCheckCircle, AiOutlineCheckCircle } from "react-icons/ai"
-import { BsFillCheckCircleFill } from "react-icons/bs"
+import { AiOutlineCheckCircle } from "react-icons/ai"
 
 const Section = () => {
     return (
-        <div className='bg-gray-900 text-white p-8 mb-10'>
+        <div className='bg-gray-900 text-white p-8'>
             <div className='grid grid-cols-1  lg:grid-cols-3 gap-5'>
                 <div className='col my-8 mx-16'>
                     <p className='text-4xl font-bold my-3'>Green Food</p>

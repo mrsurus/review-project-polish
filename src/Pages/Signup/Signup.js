@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import useTitle from '../../Hooks/useTitle';
 import { setAuthToken } from '../Components/Api/Auth';
 import { AuthContext } from '../Components/Context/AuthProvider';
 
@@ -11,6 +12,7 @@ const Signup = () => {
     const location = useLocation()
     const navigate = useNavigate()
     const from = location.state?.from?.pathname || '/'
+    useTitle('Sign Up')
 
     const handleSignup = data => {
         console.log(data.email, data.password);

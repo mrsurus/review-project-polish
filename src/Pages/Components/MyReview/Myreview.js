@@ -1,11 +1,16 @@
 import React, { useContext, useEffect, useState } from 'react';
 import Swal from 'sweetalert2';
+import useTitle from '../../../Hooks/useTitle';
 import { AuthContext } from '../Context/AuthProvider';
+import Spinner from '../Spinner/Spinner';
 import MyReviewCard from './MyReviewCard';
 
 const Myreview = () => {
     const [myreviews, setMyreview] = useState([])
-    const {user, logOut} = useContext(AuthContext)
+    const {user, logOut, loading} = useContext(AuthContext)
+    useTitle('My Review')
+
+   
 
     useEffect(() =>{
         fetch(`http://localhost:5000/review?email=${user?.email}`,{
@@ -44,6 +49,10 @@ const Myreview = () => {
 
     if(myreviews.length === 0){
         return <p className='text-center text-4xl font-bold text-lime-500 my-24 '>No review were added by you. </p>
+    }
+
+    if(loading){
+        return <Spinner></Spinner>
     }
     return (
         <div>

@@ -39,8 +39,6 @@ const ReviewSection = ({ data, setRefetch, refetch }) => {
                 reset()
             })
 
-
-
     }
     return (
         <div >
