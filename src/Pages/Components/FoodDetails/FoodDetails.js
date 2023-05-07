@@ -12,7 +12,7 @@ const FoodDetails = () => {
     useTitle('Food Details')
 
     useEffect(()=>{
-        fetch(`http://localhost:5000/review/${data._id}`)
+        fetch(`https://review-project-polish-server.vercel.app/review/${data._id}`)
         .then(res => res.json())
         .then(data => setReviewes(data))
     },[refetch, data._id])

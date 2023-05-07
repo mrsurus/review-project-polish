@@ -13,7 +13,7 @@ const AuthProvider = ({ children }) => {
     const [refetch, setRefetch] = useState(true)
 
     useEffect(()=> {
-        fetch('http://localhost:5000/services')
+        fetch('https://review-project-polish-server.vercel.app/services')
         .then(res => res.json())
         .then(data => setServices(data))
 

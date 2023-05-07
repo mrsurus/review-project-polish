@@ -13,8 +13,8 @@ const Myreview = () => {
    
 
     useEffect(() =>{
-        fetch(`http://localhost:5000/review?email=${user?.email}`,{
-            headers: {
+        fetch(`https://review-project-polish-server.vercel.app/review?email=${user?.email}`,{
+            headers:{
                 authorization:`Bearer ${localStorage.getItem('review-token')} `
             }
         })
@@ -29,7 +29,7 @@ const Myreview = () => {
     
 
     const handleDelete =(id)=> {
-        fetch(`http://localhost:5000/review/${id}`,{
+        fetch(`https://review-project-polish-server.vercel.app/review/${id}`,{
             method: 'DELETE'
         })
         .then(res => res.json())
@@ -47,13 +47,15 @@ const Myreview = () => {
         }) 
     }
 
+    if(loading===true){
+        return <Spinner></Spinner>
+    }
+
     if(myreviews.length === 0){
         return <p className='text-center text-4xl font-bold text-lime-500 my-24 '>No review were added by you. </p>
     }
 
-    if(loading){
-        return <Spinner></Spinner>
-    }
+    
     return (
         <div>
             {

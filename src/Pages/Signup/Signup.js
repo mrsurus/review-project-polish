@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
@@ -8,6 +8,7 @@ import { AuthContext } from '../Components/Context/AuthProvider';
 
 const Signup = () => {
     const { register, handleSubmit, formState: { errors } } = useForm()
+    const [mainError, setMainError] = useState('')
     const { createUser, googleLogin, updateNamePhoto } = useContext(AuthContext)
     const location = useLocation()
     const navigate = useNavigate()
@@ -15,6 +16,7 @@ const Signup = () => {
     useTitle('Sign Up')
 
     const handleSignup = data => {
+        setMainError('')
         console.log(data.email, data.password);
         createUser(data.email, data.password)
             .then(res => {
@@ -32,19 +34,23 @@ const Signup = () => {
                 )
 
             })
-            .catch(err => console.log(err))
+            .catch(err => {
+                setMainError(err)
+                console.log('error');
+            })
     }
 
     const handleGoogleLogin =() =>{
         googleLogin()
         .then(res => {
-            console.log(res.user);
+            const user = res.user
+            setAuthToken(user)
             navigate(from, {replace: true})
         })
         .catch(err => console.log(err))
     }
 
-
+console.log(mainError.message);
     return (
         <div>
             <div className="hero  bg-lime-300">
@@ -79,13 +85,14 @@ const Signup = () => {
                             </div>
                             <p className='text-red-500'>{errors.password?.message}</p>
                             <div className="form-control mt-6">
+                            <p className='text-red-500'>Error: {mainError?.message.slice(22,42)}</p>
                                 <input className='btn bg-lime-500 ' type="submit" value="Sign Up" />
                             </div>
                             <p className='text-center text-white'>Already have an account? <Link className='text-success font-bold' to='/login'>Log In</Link></p>
                             
                         </form>
                         <button onClick={handleGoogleLogin} className='btn btn-primary mt-5 mx-8 mb-5'>Login With Google</button>
-                        <p className='text-red-500'>{errors?.errors}</p>
+                        
 
                     </div>
                 </div>
